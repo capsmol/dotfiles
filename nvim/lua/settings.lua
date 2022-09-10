@@ -34,7 +34,7 @@ require("nvim-tree").setup({
 })
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = {'lua', 'javaScript'},
+  ensure_installed = {'lua', 'javascript'},
   sync_install = false,
   auto_install = true,
   ignore_install = { 'phpdoc' },
