@@ -1,4 +1,3 @@
--- NEED REFACTORING --
 local cmd = vim.cmd
 local exec = vim.api.nvim_exec
 local g = vim.g
@@ -10,10 +9,9 @@ g.translate_target = 'en'
 g.mapleader = ';'
 
 opt.termguicolors = true
-cmd('colorscheme nightfox')
+-- cmd('colorscheme nightfox')
 
 opt.cursorline = true
-opt.spelllang= { 'en_us', 'ru' }
 opt.number = true
 opt.hidden = true
 
@@ -28,24 +26,16 @@ opt.shell = 'fish'
 
 vim.o.sessionoptions='blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal'
 
-require("nvim-tree").setup({
-  open_on_setup = false,
-  open_on_setup_file = false,
-})
-
-require('nvim-treesitter.configs').setup {
-  ensure_installed = {'lua', 'javascript'},
-  sync_install = false,
-  auto_install = true,
-  ignore_install = { 'phpdoc' },
-  highlight = { enable = true }
-}
-
+-- require("nvim-tree").setup({
+--   open_on_setup = false,
+--   open_on_setup_file = false,
+-- })
+--
 require('lualine').setup()
 
 require("bufferline").setup{
   options = {
-    offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
+    -- offsets = {{filetype = "NvimTree", text = "File Explorer", text_align = "left"}},
     close_command = "bdelete! %d",
   }
 }
@@ -62,19 +52,18 @@ require('mason-lspconfig').setup()
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
-cmp.setup {
-	sources = {
-    { name = 'nvim_lsp' }
-  },
-  mapping = {
-          ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-          ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-          ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-  },
-} 
+-- cmp.setup {
+-- 	sources = {
+--     { name = 'nvim_lsp' }
+--   },
+--   mapping = {
+--           ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+--           ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+--           ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+--   },
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 require'lspconfig'.tsserver.setup{
   capabilities = capabilities,
@@ -106,3 +95,25 @@ require'lspconfig'.sumneko_lua.setup{
 require'lspconfig'.clangd.setup{}
 
 require('lspkind')
+
+require("illuminate").configure({
+  delay = 300,
+  filetypes_denylist = {
+    "NvimTree",
+    "fugitive",
+  },
+})
+
+require('nvim-ts-autotag').setup{}
+
+require("trouble").setup{
+  signs = {
+    error = "",
+    warning = "",
+    hint = "",
+    information = "",
+    other = "﫠"
+  },
+}
+
+require'colorizer'.setup()
