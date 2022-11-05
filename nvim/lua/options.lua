@@ -31,4 +31,5 @@ opt.writebackup = false -- Disable making a backup before overwriting a file
 
 g.highlighturl_enabled = true -- highlight URLs by default
 g.mapleader = ";" -- set leader key
-g.zipPlugin = false -- disable zip
+
+cmd('colorscheme tokyonight-night') -- set colorscheme
