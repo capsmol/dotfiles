@@ -200,6 +200,12 @@ _G.packer_plugins = {
     path = "/home/user/.local/share/nvim/site/pack/packer/opt/lspkind.nvim",
     url = "https://github.com/onsails/lspkind.nvim"
   },
+  ["lspsaga.nvim"] = {
+    config = { "\27LJ\2\2/\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\20configs.lspsaga\frequire\0" },
+    loaded = true,
+    path = "/home/user/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
+    url = "https://github.com/glepnir/lspsaga.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     config = { "\27LJ\2\0027\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\28configs.mason-lspconfig\frequire\0" },
     load_after = {},
@@ -435,6 +441,10 @@ time([[Config for nvim-lspconfig]], false)
 time([[Config for auto-session]], true)
 try_loadstring("\27LJ\2\0024\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\25configs.auto-session\frequire\0", "config", "auto-session")
 time([[Config for auto-session]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+try_loadstring("\27LJ\2\2/\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\20configs.lspsaga\frequire\0", "config", "lspsaga.nvim")
+time([[Config for lspsaga.nvim]], false)
 -- Config for: session-lens
 time([[Config for session-lens]], true)
 try_loadstring("\27LJ\2\0024\0\0\2\0\2\0\0046\0\0\0'\1\1\0B\0\2\1K\0\1\0\25configs.session-lens\frequire\0", "config", "session-lens")

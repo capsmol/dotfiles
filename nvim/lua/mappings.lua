@@ -31,3 +31,10 @@ set('n', '<space>fb', '<cmd>Telescope file_browser<cr>', default_opts)
 
 -- Session lens
 set('n', '<leader>fs', '<cmd>SearchSession<cr>', default_opts)
+
+-- LSP SAGA
+set('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', default_opts)
+set('n', '<leader>gr', '<cmd>Lspsaga rename<CR>', default_opts)
+set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', default_opts)
+set('n', '<leader>sh', '<cmd>Lspsaga signature_help<CR>', default_opts)
+

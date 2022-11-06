@@ -223,5 +223,16 @@ packer.startup {
    use {
      'nvim-telescope/telescope-file-browser.nvim',
    }
+   -- LSP Saga
+   use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function() require 'configs.lspsaga' end
+  })
+  -- ts-autotag
+  use {
+    'windwp/nvim-ts-autotag',
+    config = function() require 'configs.ts-autotag' end
+  }
   end
 }
