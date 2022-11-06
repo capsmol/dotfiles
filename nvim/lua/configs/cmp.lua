@@ -11,13 +11,19 @@ local function has_words_before()
 end
 
 setup({
-  enabled = function()
-    if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then return false end
-    return vim.g.cmp_enabled
-  end,
-  preselect = cmp.PreselectMode.None,
+  -- preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args) luasnip.lsp_expand(args.body) end,
+  },
+  sources = {
+    {name = 'path'},
+    {name = 'nvim_lsp'},
+    {name = 'buffer'},
+    {name = 'luasnip'},
+  },
+  formatting = {
+    fields = { "kind", "abbr", "menu" },
+    format = lspkind.cmp_format(),
   },
   duplicates = {
     nvim_lsp = 1,
@@ -76,3 +82,5 @@ setup({
     }),
   }
 })
+
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}

@@ -57,10 +57,10 @@ packer.startup {
     branch = 'v2.x',
     module = 'neo-tree',
     cmd = 'Neotree',
-    requires = { 
+    requires = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
-      { 'MunifTanjim/nui.nvim', module = 'nui' }
+      'MunifTanjim/nui.nvim'
     },
     setup = function() vim.g.neo_tree_remove_legacy_commands = true end,
     config = function() require 'configs.neo-tree' end,
@@ -116,6 +116,112 @@ packer.startup {
      'hrsh7th/nvim-cmp',
      event = 'InsertEnter',
      config = function() require 'configs.cmp' end,
+   }
+   -- Snippet completion source
+   use {
+     'saadparwaiz1/cmp_luasnip',
+     after = 'nvim-cmp',
+   }
+   -- Buffer completion source
+   use {
+     'hrsh7th/cmp-buffer',
+     after = 'nvim-cmp',
+   }
+   -- Path completion source
+   use {
+     'hrsh7th/cmp-path',
+     after = 'nvim-cmp',
+   }
+   -- LSP completion source
+   use {
+     'hrsh7th/cmp-nvim-lsp',
+     after = 'nvim-cmp'
+   }
+   -- Built-in LSP
+   use {
+     'neovim/nvim-lspconfig',
+     config = function() require 'configs.lspconfig' end,
+   }
+   -- Package Manager
+   use {
+     'williamboman/mason.nvim',
+     config = function() require 'configs.mason' end,
+   }
+   -- LSP manager
+   use {
+    'williamboman/mason-lspconfig.nvim',
+    after = {'mason.nvim', 'nvim-lspconfig'},
+    config = function() require 'configs.mason-lspconfig' end,
+   }
+   -- Formatting and linting
+   use {
+     'jose-elias-alvarez/null-ls.nvim',
+     event = 'BufEnter',
+     config = function() require 'configs.null-ls' end,
+   }
+   -- null-ls manager
+   use {
+     'jayp0521/mason-null-ls.nvim',
+     after = {'mason.nvim', 'null-ls.nvim'},
+     config = function() require 'configs.mason-null-ls' end,
+   }
+   -- LSP symbols
+   use {
+     'stevearc/aerial.nvim',
+     module = 'aerial',
+     config = function() require 'configs.aerial' end,
+   }
+   -- Fuzzy finder
+   use {
+    'nvim-telescope/telescope.nvim',
+    module = 'telescope',
+    config = function() require 'configs.telescope' end,
+    requires = { {'nvim-lua/plenary.nvim'} }
+   }
+   -- Fuzzy finder syntax support
+   use {
+     'nvim-telescope/telescope-fzf-native.nvim',
+     after = 'telescope.nvim',
+     run = 'make',
+     config = function() require('telescope').load_extension 'fzf' end,
+   }
+   -- Color highlighting
+   use {
+     'NvChad/nvim-colorizer.lua',
+     event = 'BufEnter',
+     config = function() require 'configs.colorizer' end,
+   }
+   -- Indentation
+   use {
+     'lukas-reineke/indent-blankline.nvim',
+     event = 'BufEnter',
+     config = function() require 'configs.indent-line' end,
+   }
+   -- Keymaps popup
+   -- use {
+   --   'folke/which-key.nvim',
+   --   config = function() require 'configs.which-key' end,
+   -- }
+   -- Smooth escaping
+   use {
+     'max397574/better-escape.nvim',
+     event = 'InsertCharPre',
+     config = function() require 'configs.better_escape' end,
+   }
+   -- Session manager
+   use {
+     'rmagatti/auto-session',
+     config = function() require 'configs.auto-session' end,
+   }
+   -- Session-switcher
+   use {
+     'rmagatti/session-lens',
+     requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'},
+     config = function () require 'configs.session-lens' end
+   }
+   -- Telescope-file-browser
+   use {
+     'nvim-telescope/telescope-file-browser.nvim',
    }
   end
 }

@@ -1,6 +1,5 @@
 local lspkind = require "lspkind"
 
-lspkind.init(
   symbol_map = {
     NONE = "",
     Array = "",
@@ -20,4 +19,6 @@ lspkind.init(
     TypeParameter = "",
     Unit = "",
   }
-)
+
+lspkind.init(symbol_map)
+
