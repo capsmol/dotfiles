@@ -198,10 +198,10 @@ packer.startup {
      config = function() require 'configs.indent-line' end,
    }
    -- Keymaps popup
-   -- use {
-   --   'folke/which-key.nvim',
-   --   config = function() require 'configs.which-key' end,
-   -- }
+   use {
+     'folke/which-key.nvim',
+     config = function() require 'configs.which-key' end,
+   }
    -- Smooth escaping
    use {
      'max397574/better-escape.nvim',
@@ -229,10 +229,15 @@ packer.startup {
     branch = "main",
     config = function() require 'configs.lspsaga' end
   })
-  -- ts-autotag
+  -- Improve the default vim.ui interfaces
   use {
-    'windwp/nvim-ts-autotag',
-    config = function() require 'configs.ts-autotag' end
+   'stevearc/dressing.nvim',
+   config = function () require 'configs.dressing' end
+  }
+  -- Dashboard
+  use {
+    'glepnir/dashboard-nvim',
+    config = function () require 'configs.dashboard' end
   }
   end
 }

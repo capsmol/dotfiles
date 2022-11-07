@@ -1,5 +1,8 @@
 local set = vim.keymap.set
 local default_opts = {noremap = true, silent = true}
+local default_opts_test = function (desc)
+   return {noremap = true, silent = true, desc = desc}
+end
 local builtin = require('telescope.builtin')
 
 -- Smart Splits
@@ -23,7 +26,7 @@ set('n', '<leader>t', '<cmd>Neotree toggle<cr>', default_opts)
 set('n', '<leader>o', '<cmd>Neotree focus<cr>', default_opts)
 
 -- Telescope
-set('n', '<leader>ff', builtin.find_files, default_opts)
+set('n', '<leader>ff', builtin.find_files, default_opts_test('find files'))
 set('n', '<leader>fg', builtin.live_grep, default_opts)
 set('n', '<leader>fb', builtin.buffers, default_opts)
 set('n', '<leader>fh', builtin.help_tags, default_opts)
@@ -37,4 +40,5 @@ set('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', default_opts)
 set('n', '<leader>gr', '<cmd>Lspsaga rename<CR>', default_opts)
 set('n', '<leader>ca', '<cmd>Lspsaga code_action<CR>', default_opts)
 set('n', '<leader>sh', '<cmd>Lspsaga signature_help<CR>', default_opts)
+set('n', '<leader>gp', '<cmd>Lspsaga preview_definition<CR>', default_opts)
 

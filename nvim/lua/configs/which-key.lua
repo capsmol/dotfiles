@@ -1,3 +1,4 @@
+-- NEED REFACTOR
 local which_key = require 'which-key'
 
 which_key.setup({
@@ -9,3 +10,16 @@ which_key.setup({
     filetypes = { 'TelescopePrompt', 'neo-tree' },
   },
 })
+
+local mapping = {
+  f = {
+    name = 'file',
+    f = { '<cmd>Telescope find_files<cr>'},
+  }
+}
+
+local opts = {
+  prefix = '<leader>'
+}
+
+which_key.register(mapping, opts)
