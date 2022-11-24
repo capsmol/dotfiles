@@ -14,6 +14,7 @@ starship init fish | source
 
 alias gonc "cd ~/.config/nvim/lua/"
 alias gofc "cd ~/.config/fish/"
+alias lg "lazygit"
 
 if type -q exa
     alias ll "exa -l -g --icons --all --git --no-permissions --no-user --no-time --header --grid"
