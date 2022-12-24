@@ -6,10 +6,10 @@ end
 local builtin = require('telescope.builtin')
 
 -- Smart Splits
-set('n', '<C-h>', ":lua require('smart-splits').move_cursor_left<CR>", default_opts)
-set('n', '<C-j>', require('smart-splits').move_cursor_down, default_opts)
-set('n', '<C-k>', require('smart-splits').move_cursor_up, default_opts)
-set('n', '<C-l>', require('smart-splits').move_cursor_right, default_opts)
+-- set('n', '<C-h>', ":lua require('smart-splits').move_cursor_left<CR>", default_opts)
+-- set('n', '<C-j>', require('smart-splits').move_cursor_down, default_opts)
+-- set('n', '<C-k>', require('smart-splits').move_cursor_up, default_opts)
+-- set('n', '<C-l>', require('smart-splits').move_cursor_right, default_opts)
 
 -- Navigate buffers
 set('n', '<S-l>', '<cmd>BufferLineCycleNext<cr>', default_opts)
